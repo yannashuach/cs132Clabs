@@ -1,0 +1,11 @@
+
+
+if ! test -e $1.elf ; then echo Cannot find $1.elf ; exit ; fi
+if ! test -e $1.hex ; then echo Cannot find $1.hex ; exit ; fi
+
+/modules/cs132/arm-toolchain/bin/arm-none-eabi-gdb  $1.elf \
+-ex "target remote localhost:3333" \
+-ex "monitor soft_reset_halt" \
+-ex "load $1.hex" \
+-ex "echo \n\n\n" \
+-ex "echo Type \"c\" (continue) to start program...\n"

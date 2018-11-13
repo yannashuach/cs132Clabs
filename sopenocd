@@ -1,0 +1,2 @@
+/modules/cs132/arm-toolchain/bin/openocd \
+-f /courses/cs132/arm-stuff/openocd.cfg
